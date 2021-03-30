@@ -9,6 +9,6 @@
     "upload": {
       "target": "lhci",
       "serverBaseUrl": "https://vkui-lh-server.herokuapp.com"
-    },
+    }
   }
 }
