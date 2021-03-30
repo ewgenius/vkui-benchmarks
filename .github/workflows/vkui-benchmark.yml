@@ -1,0 +1,41 @@
+name: VKUI Single Benchmark
+
+on: 
+  workflow_dispatch:
+    inputs:
+      vkui-version:
+        description: 'VKUI branch name (e.g. "master") or tag (e.g. "v4.0.2")'
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14"
+
+      - run: yarn
+
+      - name: install vkui ${{ github.event.inputs.version }}
+        if: ${{ github.event.inputs.vkui-version }}
+        run: npx lerna exec --scope @vkui-benchmarks/vkui-benchmark -- yarn add 'https://github.com/VKCOM/VKUI.git\#${{ github.event.inputs.version }}'
+
+      - run: npx lerna bootstrap --scope @vkui-benchmarks/vkui-benchmark
+      - run: yarn build:vkui
+      - run: yarn start:vkui
+      - name: Lighthouse CI Action
+        id: benchmark
+        uses: treosh/lighthouse-ci-action@v7
+        env:
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: vkui-separate-$GITHUB_RUN_ID
+        with:
+          temporaryPublicStorage: true
+          configPath: ./lighthouserc
+          urls: |
+            https://localhost:3000
+            https://localhost:3000?mode=modals
+            https://localhost:3000?mode=burn
