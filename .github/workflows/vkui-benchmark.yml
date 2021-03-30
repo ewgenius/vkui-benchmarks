@@ -32,6 +32,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v7
         env:
           LHCI_BUILD_CONTEXT__CURRENT_HASH: vkui-separate-$GITHUB_RUN_ID
+          LHCI_BUILD_CONTEXT__COMMIT_MESSAGE: test
         with:
           configPath: ./lighthouserc
           serverBaseUrl: ${{ secrets.LHCI_SERVER_URL }}
