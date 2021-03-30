@@ -2,8 +2,7 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/*"
   ],
   "scripts": {
     "build:vkui": "SKIP_PREFLIGHT_CHECK=true npx lerna run --scope @vkui-benchmarks/vkui-benchmark build",
