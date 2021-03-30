@@ -30,10 +30,10 @@ jobs:
       - name: Lighthouse CI Action
         id: benchmark
         uses: treosh/lighthouse-ci-action@v7
-        env:
-          LHCI_BUILD_CONTEXT__CURRENT_HASH: vkui-separate-$GITHUB_RUN_ID
-          LHCI_BUILD_CONTEXT__COMMIT_MESSAGE: test
-          LHCI_BUILD_CONTEXT__AUTHOR: test
+        # env:
+        #   LHCI_BUILD_CONTEXT__CURRENT_HASH: vkui-separate-$GITHUB_RUN_ID
+        #   LHCI_BUILD_CONTEXT__COMMIT_MESSAGE: test
+        #   LHCI_BUILD_CONTEXT__AUTHOR: test
         with:
           configPath: ./lighthouserc
           serverBaseUrl: ${{ secrets.LHCI_SERVER_URL }}
