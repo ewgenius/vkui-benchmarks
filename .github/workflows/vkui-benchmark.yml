@@ -26,7 +26,7 @@ jobs:
 
       - run: npx lerna bootstrap --scope @vkui-benchmarks/vkui-benchmark
       - run: yarn build:vkui
-      - run: yarn start:vkui
+      - run: yarn start:vkui & sleep 10
       - name: Lighthouse CI Action
         id: benchmark
         uses: treosh/lighthouse-ci-action@v7
