@@ -1,11 +1,11 @@
 name: VKUI Single Benchmark
 
-on: 
-  workflow_dispatch:
-    inputs:
-      vkui-version:
-        description: 'VKUI branch name (e.g. "master") or tag (e.g. "v4.0.2")'
-        required: false
+on: push
+  # workflow_dispatch:
+  #   inputs:
+  #     vkui-version:
+  #       description: 'VKUI branch name (e.g. "master") or tag (e.g. "v4.0.2")'
+  #       required: false
 
 jobs:
   build:
