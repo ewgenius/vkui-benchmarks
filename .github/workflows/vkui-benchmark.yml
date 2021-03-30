@@ -36,6 +36,6 @@ jobs:
           temporaryPublicStorage: true
           configPath: ./lighthouserc
           urls: |
-            https://localhost:3000
-            https://localhost:3000?mode=modals
-            https://localhost:3000?mode=burn
+            http://localhost:3000
+            http://localhost:3000?mode=modals
+            http://localhost:3000?mode=burn
