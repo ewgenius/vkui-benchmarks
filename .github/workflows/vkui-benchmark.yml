@@ -33,8 +33,9 @@ jobs:
         env:
           LHCI_BUILD_CONTEXT__CURRENT_HASH: vkui-separate-$GITHUB_RUN_ID
         with:
-          temporaryPublicStorage: true
           configPath: ./lighthouserc
+          serverBaseUrl: ${{ secrets.LHCI_SERVER_URL }}
+          serverToken: ${{ secrets.LHCI_TOKEN }}
           urls: |
             http://localhost:3000
             http://localhost:3000?mode=modals
