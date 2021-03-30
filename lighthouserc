@@ -5,6 +5,10 @@
         "preset": "desktop",
         "maxWaitForFcp": 60000
       }
-    }
+    },
+    "upload": {
+      "target": "lhci",
+      "serverBaseUrl": "https://vkui-lh-server.herokuapp.com"
+    },
   }
 }
